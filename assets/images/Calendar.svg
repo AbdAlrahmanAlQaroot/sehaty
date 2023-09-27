@@ -1,0 +1,9 @@
+<svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Calendar">
+<rect id="Rectangle 25" x="2" y="4.5" width="12" height="10" rx="2" stroke="white"/>
+<path id="Vector 3" d="M2.66667 7.8335H13.3333" stroke="white" stroke-linecap="round"/>
+<path id="Vector 4" d="M6 11.1665H10" stroke="white" stroke-linecap="round"/>
+<path id="Line 1" d="M5.33333 2.5L5.33333 5.16667" stroke="white" stroke-linecap="round"/>
+<path id="Line 2" d="M10.6667 2.5L10.6667 5.16667" stroke="white" stroke-linecap="round"/>
+</g>
+</svg>

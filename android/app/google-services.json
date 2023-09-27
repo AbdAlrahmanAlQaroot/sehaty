@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "647266348483",
+    "project_id": "sehaty-55f89",
+    "storage_bucket": "sehaty-55f89.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:647266348483:android:1de68e35c342fe923fe176",
+        "android_client_info": {
+          "package_name": "com.mycompany.sehaty"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBb-PbEaUeDnczgxpOUgxEjlWw5Q1OlMfc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:647266348483:android:1b8e4f72e89e27fd3fe176",
+        "android_client_info": {
+          "package_name": "com.sehaty.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBb-PbEaUeDnczgxpOUgxEjlWw5Q1OlMfc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
