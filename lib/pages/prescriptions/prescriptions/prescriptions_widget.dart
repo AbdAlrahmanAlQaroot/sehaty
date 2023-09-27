@@ -101,7 +101,7 @@ class _PrescriptionsWidgetState extends State<PrescriptionsWidget> {
                         children: [
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
-                                20.0, 0.0, 20.0, 16.0),
+                                0.0, 0.0, 20.0, 16.0),
                             child: InkWell(
                               splashColor: Colors.transparent,
                               focusColor: Colors.transparent,
@@ -162,8 +162,7 @@ class _PrescriptionsWidgetState extends State<PrescriptionsWidget> {
                                           width: 212.0,
                                           height: 73.0,
                                           decoration: BoxDecoration(
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryBackground,
+                                            color: Color(0xFFF9F9F9),
                                           ),
                                           child: SingleChildScrollView(
                                             child: Column(
@@ -277,7 +276,7 @@ class _PrescriptionsWidgetState extends State<PrescriptionsWidget> {
                         children: [
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
-                                20.0, 0.0, 20.0, 16.0),
+                                0.0, 0.0, 0.0, 16.0),
                             child: InkWell(
                               splashColor: Colors.transparent,
                               focusColor: Colors.transparent,
@@ -315,7 +314,7 @@ class _PrescriptionsWidgetState extends State<PrescriptionsWidget> {
                                 ),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 10.0, 16.0),
+                                      0.0, 0.0, 0.0, 16.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment:
@@ -338,8 +337,7 @@ class _PrescriptionsWidgetState extends State<PrescriptionsWidget> {
                                           width: 212.0,
                                           height: 73.0,
                                           decoration: BoxDecoration(
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryBackground,
+                                            color: Color(0xFFF9F9F9),
                                           ),
                                           child: SingleChildScrollView(
                                             child: Column(

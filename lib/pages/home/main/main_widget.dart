@@ -51,7 +51,8 @@ class _MainWidgetState extends State<MainWidget> {
         backgroundColor: Colors.white,
         body: SafeArea(
           top: true,
-          child: Stack(
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
             children: [
               Align(
                 alignment: AlignmentDirectional(0.00, 0.00),
@@ -122,33 +123,38 @@ class _MainWidgetState extends State<MainWidget> {
                                         Align(
                                           alignment:
                                               AlignmentDirectional(0.00, 0.00),
-                                          child: InkWell(
-                                            splashColor: Colors.transparent,
-                                            focusColor: Colors.transparent,
-                                            hoverColor: Colors.transparent,
-                                            highlightColor: Colors.transparent,
-                                            onTap: () async {
-                                              GoRouter.of(context)
-                                                  .prepareAuthEvent();
-                                              await authManager.signOut();
-                                              GoRouter.of(context)
-                                                  .clearRedirectLocation();
+                                          child: AuthUserStreamWidget(
+                                            builder: (context) => InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                GoRouter.of(context)
+                                                    .prepareAuthEvent();
+                                                await authManager.signOut();
+                                                GoRouter.of(context)
+                                                    .clearRedirectLocation();
 
-                                              context.goNamedAuth('onboarding',
-                                                  context.mounted);
-                                            },
-                                            child: Text(
-                                              'اسم المستخدم',
-                                              textAlign: TextAlign.end,
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .headlineMedium
-                                                  .override(
-                                                    fontFamily: 'Poppins',
-                                                    color: Color(0xFF161C24),
-                                                    fontSize: 24.0,
-                                                    fontWeight: FontWeight.bold,
-                                                  ),
+                                                context.goNamedAuth(
+                                                    'Loading', context.mounted);
+                                              },
+                                              child: Text(
+                                                currentUserDisplayName,
+                                                textAlign: TextAlign.end,
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .headlineMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color:
+                                                              Color(0xFF161C24),
+                                                          fontSize: 24.0,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                        ),
+                                              ),
                                             ),
                                           ),
                                         ),
@@ -481,14 +487,14 @@ class _MainWidgetState extends State<MainWidget> {
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
-                                context.pushNamed('xray');
+                                context.pushNamed('Complains');
                               },
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(8.0),
-                                child: SvgPicture.asset(
-                                  'assets/images/Group_38.svg',
-                                  width: 25.72,
-                                  height: 40.0,
+                                child: Image.asset(
+                                  'assets/images/complaint_(2).png',
+                                  width: 33.0,
+                                  height: 30.0,
                                   fit: BoxFit.none,
                                 ),
                               ),
@@ -1032,7 +1038,7 @@ class _MainWidgetState extends State<MainWidget> {
                                       highlightColor: Colors.transparent,
                                       onTap: () async {
                                         context.pushNamed(
-                                          'notifications',
+                                          'schedule',
                                           extra: <String, dynamic>{
                                             kTransitionInfoKey: TransitionInfo(
                                               hasTransition: true,
@@ -1060,38 +1066,37 @@ class _MainWidgetState extends State<MainWidget> {
                           ],
                         ),
                       ),
-                      Column(
-                        mainAxisSize: MainAxisSize.max,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                16.0, 16.0, 16.0, 0.0),
-                            child: Text(
-                              'نتائج الاختبارات الأخيرة',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 12.0,
-                                  ),
+                      SingleChildScrollView(
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  16.0, 16.0, 16.0, 0.0),
+                              child: Text(
+                                'نتائج الاختبارات الأخيرة',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Poppins',
+                                      color: Colors.black,
+                                      fontSize: 12.0,
+                                    ),
+                              ),
                             ),
-                          ),
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 20.0),
-                            child: Column(
+                            Column(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      10.0, 0.0, 10.0, 0.0),
+                                      10.0, 0.0, 10.0, 10.0),
                                   child: Container(
                                     width: 382.0,
-                                    height: 54.0,
+                                    height: 70.0,
                                     decoration: BoxDecoration(
                                       color: Colors.white,
                                       boxShadow: [
@@ -1114,7 +1119,7 @@ class _MainWidgetState extends State<MainWidget> {
                                             borderRadius:
                                                 BorderRadius.circular(0.0),
                                             child: SvgPicture.asset(
-                                              'assets/images/Group_(3).svg',
+                                              'assets/images/xray.svg',
                                               width: 16.0,
                                               height: 25.0,
                                               fit: BoxFit.cover,
@@ -1126,7 +1131,7 @@ class _MainWidgetState extends State<MainWidget> {
                                               EdgeInsetsDirectional.fromSTEB(
                                                   19.45, 0.0, 0.0, 0.0),
                                           child: Text(
-                                            'تحليل ملف الدهون - 10/06/2023',
+                                            'نتائج اختبار التصوير - 1/02/2023',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
@@ -1143,21 +1148,17 @@ class _MainWidgetState extends State<MainWidget> {
                                 ),
                               ],
                             ),
-                          ),
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 10.0),
-                            child: Column(
+                            Column(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      10.0, 0.0, 10.0, 0.0),
+                                      10.0, 0.0, 10.0, 10.0),
                                   child: Container(
                                     width: 382.0,
-                                    height: 54.0,
+                                    height: 70.0,
                                     decoration: BoxDecoration(
                                       color: Colors.white,
                                       boxShadow: [
@@ -1175,14 +1176,14 @@ class _MainWidgetState extends State<MainWidget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  25.0, 0.0, 0.0, 0.0),
+                                                  28.0, 0.0, 0.0, 0.0),
                                           child: ClipRRect(
                                             borderRadius:
                                                 BorderRadius.circular(0.0),
                                             child: SvgPicture.asset(
-                                              'assets/images/Group_(4).svg',
-                                              width: 25.0,
-                                              height: 19.0,
+                                              'assets/images/xray.svg',
+                                              width: 16.0,
+                                              height: 25.0,
                                               fit: BoxFit.cover,
                                             ),
                                           ),
@@ -1192,7 +1193,7 @@ class _MainWidgetState extends State<MainWidget> {
                                               EdgeInsetsDirectional.fromSTEB(
                                                   19.45, 0.0, 0.0, 0.0),
                                           child: Text(
-                                            ' اختبار اجهاد القلب- 13/06/2023',
+                                            'نتائج اختبار التصوير - 15/06/2023',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
@@ -1209,67 +1210,70 @@ class _MainWidgetState extends State<MainWidget> {
                                 ),
                               ],
                             ),
-                          ),
-                          Column(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    10.0, 0.0, 10.0, 0.0),
-                                child: Container(
-                                  width: 382.0,
-                                  height: 54.0,
-                                  decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    boxShadow: [
-                                      BoxShadow(
-                                        blurRadius: 4.0,
-                                        color: Color(0x33000000),
-                                        offset: Offset(0.0, 2.0),
-                                      )
-                                    ],
-                                    borderRadius: BorderRadius.circular(16.0),
-                                  ),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            28.0, 0.0, 0.0, 0.0),
-                                        child: ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(0.0),
-                                          child: SvgPicture.asset(
-                                            'assets/images/xray.svg',
-                                            width: 16.0,
-                                            height: 25.0,
-                                            fit: BoxFit.cover,
+                            Column(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      10.0, 0.0, 10.0, 0.0),
+                                  child: Container(
+                                    width: 382.0,
+                                    height: 70.0,
+                                    decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      boxShadow: [
+                                        BoxShadow(
+                                          blurRadius: 4.0,
+                                          color: Color(0x33000000),
+                                          offset: Offset(0.0, 2.0),
+                                        )
+                                      ],
+                                      borderRadius: BorderRadius.circular(16.0),
+                                    ),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  28.0, 0.0, 0.0, 0.0),
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(0.0),
+                                            child: SvgPicture.asset(
+                                              'assets/images/xray.svg',
+                                              width: 16.0,
+                                              height: 25.0,
+                                              fit: BoxFit.cover,
+                                            ),
                                           ),
                                         ),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            19.45, 0.0, 0.0, 0.0),
-                                        child: Text(
-                                          'نتائج اختبار التصوير - 15/06/2023',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Noto Naskh Arabic',
-                                                color: Colors.black,
-                                                fontSize: 11.0,
-                                              ),
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  19.45, 0.0, 0.0, 0.0),
+                                          child: Text(
+                                            'نتائج اختبار التصوير - 5/07/2022',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily:
+                                                      'Noto Naskh Arabic',
+                                                  color: Colors.black,
+                                                  fontSize: 11.0,
+                                                ),
+                                          ),
                                         ),
-                                      ),
-                                    ],
+                                      ],
+                                    ),
                                   ),
                                 ),
-                              ),
-                            ],
-                          ),
-                        ],
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
                     ],
                   ),

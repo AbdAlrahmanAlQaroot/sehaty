@@ -28,3 +28,7 @@ export '/pages/quick_access/xray/xray_widget.dart' show XrayWidget;
 export '/calendar/calendar_widget.dart' show CalendarWidget;
 export '/pages/appointment/confirm_booking/confirm_booking_widget.dart'
     show ConfirmBookingWidget;
+export '/pages/quick_access/complains/complains_widget.dart'
+    show ComplainsWidget;
+export '/pages/appointment/schedule/schedule_widget.dart' show ScheduleWidget;
+export '/logout/logout_widget.dart' show LogoutWidget;

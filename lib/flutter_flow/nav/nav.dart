@@ -78,13 +78,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? NavBarPage() : OnboardingWidget(),
+          appStateNotifier.loggedIn ? NavBarPage() : LoadingWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? NavBarPage() : OnboardingWidget(),
+              appStateNotifier.loggedIn ? NavBarPage() : LoadingWidget(),
         ),
         FFRoute(
           name: 'onboarding',
@@ -101,7 +101,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           path: '/addAppointment',
           builder: (context, params) => params.isEmpty
               ? NavBarPage(initialPage: 'AddAppointment')
-              : AddAppointmentWidget(),
+              : NavBarPage(
+                  initialPage: 'AddAppointment',
+                  page: AddAppointmentWidget(),
+                ),
         ),
         FFRoute(
           name: 'login',
@@ -137,11 +140,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'Specialities',
           path: '/specialities',
-          builder: (context, params) => params.isEmpty
-              ? NavBarPage(initialPage: 'Specialities')
-              : SpecialitiesWidget(
-                  name: params.getParam('name', ParamType.String),
-                ),
+          builder: (context, params) => SpecialitiesWidget(
+            name: params.getParam('name', ParamType.String),
+          ),
         ),
         FFRoute(
           name: 'Doctors',
@@ -184,6 +185,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           path: '/prescriptionDetails',
           builder: (context, params) => PrescriptionDetailsWidget(
             name: params.getParam('name', ParamType.String),
+            imagePath: params.getParam('imagePath', ParamType.String),
           ),
         ),
         FFRoute(
@@ -211,9 +213,24 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'ConfirmBooking',
           path: '/confirmBooking',
+          builder: (context, params) => ConfirmBookingWidget(),
+        ),
+        FFRoute(
+          name: 'Complains',
+          path: '/complains',
+          builder: (context, params) => ComplainsWidget(),
+        ),
+        FFRoute(
+          name: 'schedule',
+          path: '/schedule',
+          builder: (context, params) => ScheduleWidget(),
+        ),
+        FFRoute(
+          name: 'logout',
+          path: '/logout',
           builder: (context, params) => params.isEmpty
-              ? NavBarPage(initialPage: 'ConfirmBooking')
-              : ConfirmBookingWidget(),
+              ? NavBarPage(initialPage: 'logout')
+              : LogoutWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -380,7 +397,7 @@ class FFRoute {
 
           if (requireAuth && !appStateNotifier.loggedIn) {
             appStateNotifier.setRedirectLocationIfUnset(state.location);
-            return '/onboarding';
+            return '/loading';
           }
           return null;
         },

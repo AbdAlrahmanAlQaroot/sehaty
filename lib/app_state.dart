@@ -54,7 +54,7 @@ class FFAppState extends ChangeNotifier {
 
   late SharedPreferences prefs;
 
-  String _apiKey = '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';
+  String _apiKey = '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';
   String get apiKey => _apiKey;
   set apiKey(String _value) {
     _apiKey = _value;

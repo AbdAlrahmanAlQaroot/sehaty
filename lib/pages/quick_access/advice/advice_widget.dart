@@ -150,40 +150,35 @@ class _AdviceWidgetState extends State<AdviceWidget> {
                                     ),
                                   ),
                                 ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      10.0, 0.0, 18.0, 16.0),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        'ممارسة رياضة بدنية',
-                                        style: FlutterFlowTheme.of(context)
-                                            .titleMedium
-                                            .override(
-                                              fontFamily: 'Poppins',
-                                              color: Color(0xFF14181B),
-                                              fontSize: 16.0,
-                                              fontWeight: FontWeight.w500,
-                                            ),
-                                      ),
-                                      AutoSizeText(
-                                        ' النشاط البدني اليومي مهم جدًا للحفاظ على صحتك.\n حاول ممارسة التمارين الرياضية بانتظام، حتى لو كانت\n جلسات قصيرة يمكن أن تكون المشي السريع\n أو ركوب الدراجة وسيلة رائعة لزيادة نشاطك البدني.',
-                                        textAlign: TextAlign.start,
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Space Grotesk',
-                                              color: Color(0xFF57636C),
-                                              fontSize: 10.0,
-                                              fontWeight: FontWeight.normal,
-                                            ),
-                                      ),
-                                    ],
-                                  ),
+                                Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      'ممارسة رياضة بدنية',
+                                      style: FlutterFlowTheme.of(context)
+                                          .titleMedium
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            color: Color(0xFF14181B),
+                                            fontSize: 16.0,
+                                            fontWeight: FontWeight.w500,
+                                          ),
+                                    ),
+                                    AutoSizeText(
+                                      ' النشاط البدني اليومي مهم جدًا للحفاظ على صحتك.\n حاول ممارسة التمارين الرياضية بانتظام، حتى لو كانت\n جلسات قصيرة يمكن أن تكون المشي السريع\n أو ركوب الدراجة وسيلة رائعة لزيادة نشاطك البدني.',
+                                      textAlign: TextAlign.start,
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Space Grotesk',
+                                            color: Color(0xFF57636C),
+                                            fontSize: 10.0,
+                                            fontWeight: FontWeight.normal,
+                                          ),
+                                    ),
+                                  ],
                                 ),
                               ],
                             ),
@@ -247,9 +242,7 @@ class _AdviceWidgetState extends State<AdviceWidget> {
                                     ),
                                   ),
                                 ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      10.0, 0.0, 18.0, 16.0),
+                                SingleChildScrollView(
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment: MainAxisAlignment.center,

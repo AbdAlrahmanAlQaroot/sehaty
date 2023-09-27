@@ -13,9 +13,11 @@ class PrescriptionDetailsWidget extends StatefulWidget {
   const PrescriptionDetailsWidget({
     Key? key,
     this.name,
+    this.imagePath,
   }) : super(key: key);
 
   final String? name;
+  final String? imagePath;
 
   @override
   _PrescriptionDetailsWidgetState createState() =>
@@ -127,8 +129,8 @@ class _PrescriptionDetailsWidgetState extends State<PrescriptionDetailsWidget> {
                         alignment: AlignmentDirectional(1.00, 0.00),
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(8.0),
-                          child: Image.network(
-                            columnMedicineRecord!.image,
+                          child: Image.asset(
+                            'assets/images/Untitled_Artwork_1.jpg',
                             width: 300.0,
                             height: 200.0,
                             fit: BoxFit.none,
@@ -141,34 +143,37 @@ class _PrescriptionDetailsWidgetState extends State<PrescriptionDetailsWidget> {
                           EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                       child: Container(
                         width: 381.0,
-                        height: 78.0,
+                        height: MediaQuery.sizeOf(context).height * 0.1,
                         decoration: BoxDecoration(
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
                         ),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              widget.name!,
-                              textAlign: TextAlign.start,
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Noto Naskh Arabic',
-                                    fontSize: 30.0,
-                                  ),
-                            ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  15.0, 10.0, 0.0, 0.0),
-                              child: Text(
-                                'الأدوية المتاحة دون وصفة طبية لتخفيف الألم وخفض الحمى.',
-                                style: FlutterFlowTheme.of(context).bodyMedium,
+                        child: SingleChildScrollView(
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                widget.name!,
+                                textAlign: TextAlign.start,
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Noto Naskh Arabic',
+                                      fontSize: 30.0,
+                                    ),
                               ),
-                            ),
-                          ],
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    15.0, 10.0, 0.0, 0.0),
+                                child: Text(
+                                  'الأدوية المتاحة دون وصفة طبية لتخفيف الألم وخفض الحمى.',
+                                  style:
+                                      FlutterFlowTheme.of(context).bodyMedium,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),

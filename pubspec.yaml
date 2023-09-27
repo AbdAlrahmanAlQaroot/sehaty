@@ -45,6 +45,7 @@ dependencies:
   firebase_storage: 11.2.2
   firebase_storage_platform_interface: 4.4.2
   firebase_storage_web: 3.6.2
+  floating_bottom_navigation_bar: 1.5.2
   flutter_animate: 4.1.1+1
   flutter_cache_manager: 3.3.0
   flutter_plugin_android_lifecycle: 2.0.9
@@ -66,6 +67,7 @@ dependencies:
   intl: 0.18.0
   intl_phone_field: ^3.1.0
   json_path: 0.6.2
+  lottie: 1.2.1
   mime_type: 1.0.0
   page_transition: 2.0.4
   path_provider: 2.0.14
@@ -104,9 +106,19 @@ dependencies:
   cupertino_icons: ^1.0.0
 
 dev_dependencies:
+  flutter_launcher_icons: 0.12.0
+  image: 4.0.17
 
   flutter_test:
     sdk: flutter
+
+
+flutter_icons:
+  android: true
+  ios: true
+  remove_alpha_ios: true
+  image_path: 'assets/images/app_launcher_icon.png'
+
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -130,6 +142,10 @@ flutter:
     - assets/pdfs/
 
 
+  fonts:
+    - family: Icomoon
+      fonts:
+        - asset: assets/fonts/icomoon.ttf
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

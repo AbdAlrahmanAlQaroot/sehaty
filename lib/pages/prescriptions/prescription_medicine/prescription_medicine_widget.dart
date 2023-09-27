@@ -1,10 +1,7 @@
-import '/auth/firebase_auth/auth_util.dart';
-import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -99,17 +96,15 @@ class _PrescriptionMedicineWidgetState
                           hoverColor: Colors.transparent,
                           highlightColor: Colors.transparent,
                           onTap: () async {
-                            await MedicineRecord.collection
-                                .doc()
-                                .set(createMedicineRecordData(
-                                  name: 'test',
-                                ));
-
                             context.pushNamed(
                               'prescriptionDetails',
                               queryParameters: {
                                 'name': serializeParam(
                                   'أسِيتامينُوفين',
+                                  ParamType.String,
+                                ),
+                                'imagePath': serializeParam(
+                                  'https://s3-alpha-sig.figma.com/img/c215/11bb/e485a324a449b8bc0568ab693b59ef4d?Expires=1696809600&Signature=RcdQvUMs5wb-tSiadWpg5Po0p86vezCuFxVywIvSuEu5BkX~czLYRGd5dcQJmcVF~T0Zc30aW218CtmDRxJjU53LiU7JI5h4CPIT7x-0wT0LQoow7CnPz1xro2U9FLfsGfFBJciNklNUvSJdhljiKN0ug6L8nDyYvLkx8yI3MMyGjMqBvksbDndagfy7qQmoIpm5fgwuZINcMjZlwNVWw2mrAHhXTklQPN8sXBiZCJthaQhjXwTx95wyty0kjphWUH3XSimiTec~avfAV9KfImp~~xSxUQ1z1vEYhjDNMEvO01bmyIvZca6Yd2it6QQvmFZNGxTMzRNFGdyJxTVBPg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
                                   ParamType.String,
                                 ),
                               }.withoutNulls,
